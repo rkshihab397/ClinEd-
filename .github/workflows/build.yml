@@ -1,0 +1,58 @@
+
+name: Build ClinEd APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ClinEd-Web/package-lock.json
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install dependencies
+        working-directory: ClinEd-Web
+        run: npm install
+
+      - name: Build web app
+        working-directory: ClinEd-Web
+        run: npm run build
+
+      - name: Add Android platform
+        working-directory: ClinEd-Web
+        run: npx cap add android
+
+      - name: Sync Android project
+        working-directory: ClinEd-Web
+        run: npx cap sync android
+
+      - name: Build debug APK
+        working-directory: ClinEd-Web
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload ClinEd APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ClinEd-APK
+          path: ClinEd-Web/android/app/build/outputs/apk/debug/app-debug.apk
