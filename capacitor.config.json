@@ -1,0 +1,6 @@
+{
+  "appId": "com.clined.medicallearning",
+  "appName": "ClinEd",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

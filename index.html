@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102b3a">
+  <title>ClinEd</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">C</span><span>Clin<span class="brand-accent">E</span>d</span></div>
+    <span class="offline-pill"><i></i> Offline ready</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">YOUR MEDICAL LEARNING COMPANION</p>
+      <h1>Learn a little.<br><em>Grow every day.</em></h1>
+      <p class="hero-copy">A simple space for clinical cases, investigations and revision.</p>
+      <div class="hero-stats">
+        <div><strong id="savedCount">0</strong><span>Saved items</span></div>
+        <div><strong>24/7</strong><span>Study access</span></div>
+        <div><strong>100%</strong><span>On-device</span></div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Main sections">
+      <button class="tab active" data-tab="home">Home</button>
+      <button class="tab" data-tab="cases">Cases</button>
+      <button class="tab" data-tab="investigations">Investigations</button>
+      <button class="tab" data-tab="notes">Notes</button>
+      <button class="tab" data-tab="saved">Saved</button>
+    </nav>
+
+    <section id="home" class="page active">
+      <div class="section-heading"><div><p class="eyebrow">START HERE</p><h2>Today's learning</h2></div><span class="date-chip">Daily practice</span></div>
+      <article class="feature-card">
+        <div class="feature-top"><span class="tag">CLINICAL CASE</span><span class="level">Beginner</span></div>
+        <h3>A patient with fever and cough</h3>
+        <p>A 22-year-old presents with 5 days of fever, cough and pleuritic chest pain. What key history and examination findings will you seek?</p>
+        <button class="primary-btn" data-open-case="0">Explore case <span>→</span></button>
+      </article>
+      <div class="quick-grid">
+        <button class="quick-card" data-go="cases"><span class="quick-icon">✚</span><strong>Clinical cases</strong><small>Practice clinical reasoning</small></button>
+        <button class="quick-card" data-go="investigations"><span class="quick-icon">⌕</span><strong>Investigations</strong><small>Review common tests</small></button>
+        <button class="quick-card" data-go="notes"><span class="quick-icon">▤</span><strong>Study notes</strong><small>High-yield revision</small></button>
+        <button class="quick-card" data-go="saved"><span class="quick-icon">♡</span><strong>Bookmarks</strong><small>Return to saved items</small></button>
+      </div>
+      <p class="disclaimer">For education only. Not for diagnosis, treatment or emergency decisions.</p>
+    </section>
+
+    <section id="cases" class="page">
+      <div class="section-heading"><div><p class="eyebrow">THINK LIKE A CLINICIAN</p><h2>Clinical cases</h2></div></div>
+      <input class="search" id="caseSearch" placeholder="Search cases..." autocomplete="off">
+      <div id="caseList" class="content-list"></div>
+    </section>
+
+    <section id="investigations" class="page">
+      <div class="section-heading"><div><p class="eyebrow">UNDERSTAND THE REPORT</p><h2>Investigations</h2></div></div>
+      <input class="search" id="investigationSearch" placeholder="Search tests, e.g. CBC, LFT..." autocomplete="off">
+      <div id="investigationList" class="content-list"></div>
+    </section>
+
+    <section id="notes" class="page">
+      <div class="section-heading"><div><p class="eyebrow">REVISION DESK</p><h2>Study notes</h2></div></div>
+      <input class="search" id="noteSearch" placeholder="Search topics..." autocomplete="off">
+      <div id="noteList" class="content-list"></div>
+    </section>
+
+    <section id="saved" class="page">
+      <div class="section-heading"><div><p class="eyebrow">YOUR COLLECTION</p><h2>Saved items</h2></div></div>
+      <div id="savedList" class="content-list"></div>
+    </section>
+  </main>
+
+  <dialog id="detailDialog">
+    <div class="dialog-head"><span class="tag" id="detailType">LEARNING</span><button class="close-btn" id="closeDialog" aria-label="Close">×</button></div>
+    <h2 id="detailTitle"></h2>
+    <div id="detailBody" class="detail-body"></div>
+    <button id="saveDetail" class="secondary-btn">♡ Save this item</button>
+  </dialog>
+
+  <footer><span>ClinEd</span><span>Learn • Reflect • Improve</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>

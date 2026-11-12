@@ -1,0 +1,27 @@
+ClinEd — Android starter package
+
+IMPORTANT: This ZIP contains the complete project.
+
+HOW TO EXTRACT WITH FILES BY GOOGLE
+1. Download this ZIP.
+2. Open Files by Google > Downloads.
+3. Tap ClinEd-Android-Starter-v2.zip.
+4. Tap Extract. Extraction happens AFTER downloading; Files by Google does not normally extract automatically while downloading.
+5. Open the extracted ClinEd folder.
+
+IMPORTANT ABOUT HIDDEN FILES
+Android file managers may hide names beginning with a dot. The .github folder is required for GitHub Actions and is included in this ZIP even if it is not visible in Files by Google.
+Do not delete or rename it.
+
+PROJECT CONTENTS
+.github/workflows/build-apk.yml — GitHub Actions APK build workflow
+www/index.html — app screen
+www/styles.css — app styling
+www/app.js — app functionality
+package.json — Node dependencies
+capacitor.config.json — Android app configuration
+.gitignore — ignored build files
+README.md — project instructions
+
+UPLOAD
+Upload the CONTENTS of the extracted ClinEd folder to the ROOT of a new GitHub repository. Do not upload only the ZIP file. Keep the .github folder and its subfolders intact.
